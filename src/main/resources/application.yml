@@ -1,0 +1,26 @@
+server:
+  port: 8130
+  servlet:
+    context-path: /custom-path
+
+spring:
+  application:
+    name: ms-product
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@localhost:27017/test?authSource=admin
+  thymeleaf:
+    reactive:
+      max-chunk-size: 1024
+
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+
+config:
+  uploads:
+    path: C://Users//John-Laptop//Documents//Desarrollo
