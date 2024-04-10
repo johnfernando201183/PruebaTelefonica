@@ -4,10 +4,11 @@ Este es un proyecto de Spring Boot que utiliza Gradle como sistema de construcci
 
 ## Tecnologías y herramientas utilizadas
 
-- Java
+- Java 17
 - Spring Boot
 - Gradle
 - IntelliJ IDEA
+- MongoDB
 
 ## Controladores
 
