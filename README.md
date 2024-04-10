@@ -29,10 +29,10 @@ Para ejecutar este proyecto, sigue estos pasos:
 
 1. Clona el repositorio en tu máquina local.
 2. Abre el proyecto en IntelliJ IDEA.
-3. Ejecuta el comando `gradle clean build` en la terminal.
-4. Tener instalado MongoDB, como por ejemplo con DOCKER. Usar los siguientes comandos:
+3. Tener instalado MongoDB, como por ejemplo con DOCKER. Usar los siguientes comandos:
 	- `docker pull mongo`
 	- `docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin mongo`
+4. Ejecuta el comando `gradle bootRun` en la terminal.
 
 ## Autor
 
