@@ -118,5 +118,4 @@ public class MongoProductRepository implements ProductRepository {
             }).flatMap(p -> Mono.just(ProductBuilder.entityToResponse(p)));
   }
 
-
 }

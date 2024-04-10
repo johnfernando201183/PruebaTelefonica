@@ -3,22 +3,13 @@ package com.example.PruebaTelefonica.core.services;
 import com.example.PruebaTelefonica.adapters.controllers.request.ProductRequest;
 import com.example.PruebaTelefonica.adapters.controllers.response.MessageResponse;
 import com.example.PruebaTelefonica.adapters.controllers.response.ProductResponse;
-import com.example.PruebaTelefonica.core.builder.ProductBuilder;
 import com.example.PruebaTelefonica.core.domain.ProductEntity;
 import com.example.PruebaTelefonica.core.ports.ProductRepository;
 import com.example.PruebaTelefonica.core.ports.ProductUseCase;
-import com.example.PruebaTelefonica.core.util.Constants;
-import com.example.PruebaTelefonica.core.util.Enums;
 import com.example.PruebaTelefonica.core.util.PageSupport;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.codec.multipart.FilePart;
 import reactor.core.publisher.Mono;
-
-
-import java.io.File;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * <b>Class</b>: ProductService <br/>
@@ -37,12 +28,16 @@ import java.util.stream.Collectors;
 public class ProductService implements ProductUseCase {
 
   ProductRepository productRepository;
+  private static final String BACKEND_A = "backendA";
 
   public ProductService(ProductRepository productRepository) {
     this.productRepository = productRepository;
   }
 
   @Override
+/*  @CircuitBreaker(name = BACKEND_A)
+  @Bulkhead(name = BACKEND_A)
+  @Retry(name = BACKEND_A)*/
   public Mono<PageSupport<ProductEntity>> getAll(Pageable pageable) {
     return productRepository.getAll(pageable);
   }

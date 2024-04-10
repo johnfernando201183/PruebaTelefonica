@@ -58,7 +58,6 @@ public class ProductController {
 
   @PostMapping
   public Mono<ResponseEntity<ProductResponse>> createProduct(@Validated @RequestBody ProductRequest productRequest) {
-    log.info("Hola");
     return productService.save(productRequest)
             .map(p -> ResponseEntity.status(HttpStatus.CREATED)
                     .contentType(MediaType.APPLICATION_JSON)
