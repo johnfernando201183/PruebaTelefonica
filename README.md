@@ -33,6 +33,31 @@ Para ejecutar este proyecto, sigue estos pasos:
 	- `docker pull mongo`
 	- `docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin mongo`
 4. Ejecuta el comando `gradle bootRun` en la terminal.
+5. 
+## Ejemplos de consumo de la API REST de ProductController
+
+A continuación, se presentan algunos ejemplos de cómo puedes consumir la API REST del controlador `ProductController` utilizando `curl`:
+
+- Obtener todos los productos:
+  ```bash
+  curl -X GET http://localhost:8130/api/products
+- Obtener un producto por su ID:
+  ```bash
+  curl -X GET http://localhost:8130/api/products/{id}
+- Crear un nuevo producto:  
+  ```bash
+  curl -X POST -H "Content-Type: application/json" -d '{"name":"TV 28 LG","price":500.0, "category":{"id":"1","name":"TV"}}' http://localhost:8130/api/products
+- Actualizar un producto existente:
+  ```bash  
+  curl -X PUT -H "Content-Type: application/json" -d '{"name":"TV 28 LG","price":550.0, "category":{"id":"1","name":"TV"}}' http://localhost:8130/api/products/{id}
+- Eliminar un producto:
+  ```bash
+  curl -X DELETE http://localhost:8130/api/products/{id}
+- Subir una imagen para un producto:
+  ```bash
+  curl -X POST -H "Content-Type: multipart/form-data" -F "file=@ruta/a/la/imagen.jpg" http://localhost:8130/api/products/upload/{id}
+
+Por favor, reemplaza {id} con el ID del producto que deseas obtener, actualizar, eliminar o subir una imagen. Para los comandos POST /api/products y PUT /api/products/{id}, asegúrate de reemplazar los valores de "nombre del producto", "descripción del producto" y "precio del producto" con los valores que deseas utilizar. Para el comando POST /api/products/upload/{id}, reemplaza "ruta/a/la/imagen.jpg" con la ruta al archivo de imagen que deseas subir.
 
 ## Autor
 
